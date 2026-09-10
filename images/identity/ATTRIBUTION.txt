@@ -1,0 +1,7 @@
+Flag of Iran
+============
+
+- Work: Flag of Iran.svg
+- Source page: https://commons.wikimedia.org/wiki/File:Flag_of_Iran.svg
+- Local file: flag-of-iran.svg
+- The vector includes the national emblem and the repeated Kufic "Allahu Akbar" border construction.

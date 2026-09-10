@@ -1,0 +1,17 @@
+Image attribution
+=================
+
+imam-khomeini.jpg
+- Work: Ruhollah Khomeini portrait 2.jpg
+- Source page: https://commons.wikimedia.org/wiki/File:Ruhollah_Khomeini_portrait_2.jpg
+- Original source: Jamaran
+- License status: Public domain in Iran, as documented on the source page.
+
+ayatollah-khamenei.jpg
+- Work: Portrait of Ali Khamenei.jpg
+- Source page: https://commons.wikimedia.org/wiki/File:Portrait_of_Ali_Khamenei.jpg
+- Original source / author: khamenei.ir
+- License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+- License URL: https://creativecommons.org/licenses/by/4.0/
+
+The portraits are used as archival imagery in the login-page interface prototype.

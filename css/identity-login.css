@@ -1,0 +1,916 @@
+/* Government portal login — first approved redesign surface */
+.government-login-page
+{
+--gov-gold: #c7a35a; --gov-teal: #147a78; --gov-ink: #0c2d46; min-height: 100dvh; background: #f4f7f8; color: var(--text);
+}
+
+.government-tricolor
+{
+position: fixed; z-index: 100; inset-block-start: 0; inset-inline: 0; display: grid; height: 4px; grid-template-columns: repeat(3, 1fr);
+}
+
+.government-tricolor span:nth-child(1)
+{
+background: #239f40;
+}
+
+.government-tricolor span:nth-child(2)
+{
+background: #fff;
+}
+
+.government-tricolor span:nth-child(3)
+{
+background: #da0000;
+}
+
+.government-login-header
+{
+position: relative; z-index: 5; display: grid; min-height: 88px; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-5); border-block-end: 1px solid rgb(12 45 70 / 12%); background: rgb(255 255 255 / 97%); box-shadow: 0 4px 18px rgb(12 45 70 / 4%); padding: 4px clamp(24px, 4vw, 64px) 0;
+}
+
+.government-login-brand
+{
+display: flex; min-width: max-content; align-items: center; gap: var(--space-3);
+}
+
+.government-login-brand > span:last-child
+{
+display: flex; flex-direction: column;
+}
+
+.government-login-brand em
+{
+color: #92743a; font-size: .62rem; font-style: normal; font-weight: 800; letter-spacing: .02em;
+}
+
+.government-login-brand strong
+{
+color: var(--gov-ink); font-size: 1.08rem;
+}
+
+.government-login-brand small
+{
+color: var(--text-muted); font-size: var(--font-xs);
+}
+
+.ministry-emblem
+{
+position: relative; display: grid; width: 50px; height: 50px; place-items: center; border: 1px solid rgb(199 163 90 / 55%); border-radius: 50%; background: #fff; color: var(--gov-ink);
+}
+
+.ministry-emblem::after
+{
+position: absolute; inset: 4px; border: 1px solid rgb(199 163 90 / 36%); border-radius: inherit; content: "";
+}
+
+.ministry-emblem .app-icon
+{
+width: 25px;
+}
+
+.government-header-inscription
+{
+display: flex; min-width: 118px; align-items: center; flex-direction: column; gap: 5px; color: var(--gov-ink); font-size: .74rem; font-weight: 800;
+}
+
+.government-header-inscription i
+{
+display: block; width: 78px; height: 5px; background: linear-gradient(90deg, transparent, var(--gov-gold) 18% 82%, transparent); clip-path: polygon(0 40%, 43% 40%, 50% 0, 57% 40%, 100% 40%, 100% 60%, 57% 60%, 50% 100%, 43% 60%, 0 60%);
+}
+
+.government-login-header nav
+{
+display: flex; align-items: center; justify-content: flex-end; gap: var(--space-5);
+}
+
+.government-login-header nav a, .government-login-header nav button
+{
+display: flex; min-height: 38px; align-items: center; gap: var(--space-2); border: 0; background: transparent; color: var(--text-secondary); font-size: var(--font-xs);
+}
+
+.government-login-header nav a:hover, .government-login-header nav button:hover
+{
+color: var(--primary);
+}
+
+.government-login-header nav .app-icon
+{
+width: 16px;
+}
+
+.government-login-header nav button > span
+{
+display: grid; width: 25px; height: 25px; place-items: center; border: 1px solid var(--border); border-radius: 50%; background: var(--surface-secondary); font-weight: 800;
+}
+
+.government-login-main
+{
+display: grid; min-height: calc(100dvh - 144px); grid-template-columns: minmax(510px, 1.04fr) minmax(470px, .96fr);
+}
+
+.government-pattern
+{
+position: absolute; inset: 0; opacity: .08; background-image: linear-gradient(30deg, transparent 12%, #fff 12%, #fff 13%, transparent 13%, transparent 62%, #fff 62%, #fff 63%, transparent 63%), linear-gradient(150deg, transparent 12%, #fff 12%, #fff 13%, transparent 13%, transparent 62%, #fff 62%, #fff 63%, transparent 63%); background-size: 54px 94px; mask-image: linear-gradient(to left, #000, transparent 72%);
+}
+
+.secure-access-card
+{
+position: relative; width: min(100%, 580px); border: 1px solid #d6e0e4; border-block-start: 3px solid var(--gov-teal); border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: var(--surface); box-shadow: 0 16px 50px rgb(12 45 70 / 10%); padding: clamp(22px, 3vw, 34px);
+}
+
+.secure-access-card::before
+{
+position: absolute; inset-block-start: -3px; inset-inline: 0; height: 3px; background: linear-gradient(90deg, var(--gov-teal), var(--gov-gold) 50%, var(--gov-teal)); content: "";
+}
+
+.secure-access-card > header
+{
+display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); margin-block-end: var(--space-5);
+}
+
+.secure-access-card > header > div
+{
+display: flex; flex-direction: column;
+}
+
+.secure-access-card > header > div > span
+{
+color: var(--text-muted); font-size: var(--font-xs);
+}
+
+.secure-access-card h2
+{
+color: var(--gov-ink); font-size: 1.25rem;
+}
+
+.national-window-mark
+{
+position: relative; display: grid; width: 46px; height: 46px; place-items: center; border-radius: 9px; background: var(--gov-ink); color: var(--on-dark);
+}
+
+.national-window-mark i
+{
+position: absolute; inset-block-start: 0; inset-inline: 0; display: block; height: 3px; background: linear-gradient(90deg, #239f40 0 33%, #fff 33% 66%, #da0000 66%);
+}
+
+.national-window-mark .app-icon
+{
+width: 23px;
+}
+
+.official-login-form
+{
+display: grid; gap: var(--space-3);
+}
+
+.official-login-form .form-field
+{
+gap: 5px;
+}
+
+.official-input
+{
+position: relative; display: flex; align-items: center;
+}
+
+.official-input > .app-icon
+{
+position: absolute; z-index: 1; inset-inline-start: var(--space-3); width: 18px; color: var(--text-muted);
+}
+
+.official-input input
+{
+width: 100%; padding-inline-start: 42px !important;
+}
+
+.official-input > button
+{
+position: absolute; inset-inline-end: var(--space-1); display: grid; width: 36px; height: 36px; place-items: center; border: 0; background: transparent; color: var(--text-muted);
+}
+
+.official-input > button .app-icon
+{
+width: 18px;
+}
+
+.official-submit
+{
+min-height: 48px; margin-block-start: var(--space-1); background: var(--gov-ink);
+}
+
+.official-submit:hover
+{
+background: #071f31;
+}
+
+.secure-login-note
+{
+display: flex; align-items: flex-start; gap: var(--space-2); border-block-start: 1px solid var(--border); color: var(--text-muted); margin-block-start: var(--space-5); padding-block-start: var(--space-4); font-size: .68rem;
+}
+
+.secure-login-note .app-icon
+{
+width: 16px; flex: 0 0 16px; color: var(--success);
+}
+
+.login-form-options
+{
+display: flex; align-items: center; justify-content: space-between; font-size: var(--font-xs);
+}
+
+.login-form-options label
+{
+display: flex; align-items: center; gap: var(--space-2);
+}
+
+.login-form-options a
+{
+color: var(--primary); font-weight: 700;
+}
+
+.government-login-footer
+{
+display: grid; min-height: 56px; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-4); border-block-start: 1px solid var(--border); background: var(--surface); color: var(--text-muted); padding-inline: clamp(24px, 4vw, 64px); font-size: .68rem;
+}
+
+.government-login-footer nav
+{
+display: flex; gap: var(--space-4);
+}
+
+.government-login-footer nav a:hover
+{
+color: var(--primary);
+}
+
+.system-health
+{
+display: flex; align-items: center; justify-content: flex-end; gap: var(--space-2);
+}
+
+.system-health i
+{
+width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px var(--success-soft);
+}
+
+.registration-status-question
+{
+display: grid; grid-template-columns: 38px minmax(0, 1fr); align-items: center; gap: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-secondary); margin-block-end: var(--space-3); padding: var(--space-3) var(--space-4);
+}
+
+.registration-status-question__number
+{
+display: grid; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: var(--gov-ink); color: var(--on-dark); font-size: var(--font-xs); font-weight: 800;
+}
+
+.registration-status-question > div
+{
+display: flex; flex-direction: column;
+}
+
+.registration-status-question h3
+{
+color: var(--gov-ink); font-size: .9rem;
+}
+
+.registration-status-question p
+{
+font-size: .65rem;
+}
+
+.account-existence-options
+{
+display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3);
+}
+
+.account-existence-options > button
+{
+display: grid; min-height: 104px; grid-template-columns: 42px minmax(0, 1fr) 18px; align-items: center; gap: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); color: var(--text-secondary); padding: var(--space-4); text-align: start;
+}
+
+.account-existence-options > button:hover
+{
+border-color: #9bc9c7; background: #f4faf9; box-shadow: 0 8px 20px rgb(12 45 70 / 7%); color: var(--gov-ink);
+}
+
+.account-existence-options > button > span
+{
+display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: var(--primary-soft); color: var(--primary);
+}
+
+.account-existence-options > button:last-child > span
+{
+background: #e8f3f2; color: var(--gov-teal);
+}
+
+.account-existence-options > button > span .app-icon
+{
+width: 19px;
+}
+
+.account-existence-options > button > div
+{
+display: flex; min-width: 0; flex-direction: column;
+}
+
+.account-existence-options strong
+{
+color: var(--gov-ink); font-size: var(--font-xs);
+}
+
+.account-existence-options small
+{
+font-size: .62rem;
+}
+
+.account-existence-options > button > .app-icon
+{
+width: 16px; color: var(--text-muted);
+}
+
+.citizen-login-branch
+{
+overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface);
+}
+
+.citizen-login-branch > header
+{
+display: flex; min-height: 62px; align-items: center; justify-content: space-between; gap: var(--space-3); border-block-end: 1px solid var(--border); background: var(--surface-secondary); padding: var(--space-3) var(--space-4);
+}
+
+.citizen-login-branch > header > div
+{
+display: flex; align-items: center; gap: var(--space-3);
+}
+
+.citizen-login-branch > header > div > span
+{
+display: grid; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: var(--success-soft); color: var(--success);
+}
+
+.citizen-login-branch--new > header > div > span
+{
+background: var(--primary-soft); color: var(--primary);
+}
+
+.citizen-login-branch > header > div > span .app-icon
+{
+width: 18px;
+}
+
+.citizen-login-branch > header > div > div
+{
+display: flex; flex-direction: column;
+}
+
+.citizen-login-branch > header strong
+{
+color: var(--gov-ink); font-size: var(--font-xs);
+}
+
+.citizen-login-branch > header small
+{
+font-size: .6rem;
+}
+
+.citizen-login-branch > header > button
+{
+border: 0; background: transparent; color: var(--primary); font-size: .62rem; font-weight: 750;
+}
+
+.citizen-login-branch > .official-login-form
+{
+padding: var(--space-4);
+}
+
+.government-gateway-options
+{
+display: grid; gap: var(--space-3); padding: var(--space-4);
+}
+
+.government-gateway-options > button
+{
+display: grid; min-height: 76px; grid-template-columns: 46px minmax(0, 1fr) 20px; align-items: center; gap: var(--space-3); border: 1px solid #cfe2e1; border-radius: var(--radius-md); background: #f4faf9; color: var(--text-secondary); padding: var(--space-3); text-align: start;
+}
+
+.government-gateway-options > button:first-child
+{
+border-color: #c6d7e4; background: #f2f7fa;
+}
+
+.government-gateway-options > button:hover
+{
+border-color: var(--gov-teal); box-shadow: 0 7px 18px rgb(12 45 70 / 7%); transform: translateY(-1px);
+}
+
+.government-gateway-options > button > div
+{
+display: flex; flex-direction: column;
+}
+
+.government-gateway-options strong
+{
+color: var(--gov-ink); font-size: var(--font-xs);
+}
+
+.government-gateway-options small
+{
+font-size: .6rem;
+}
+
+.government-gateway-options > button > .app-icon
+{
+width: 17px; color: var(--gov-teal);
+}
+
+.government-gateway-note
+{
+display: flex; align-items: center; gap: var(--space-2); border-block-start: 1px solid var(--border); color: var(--text-muted); padding: var(--space-3) var(--space-4); font-size: .62rem;
+}
+
+.government-gateway-note .app-icon
+{
+width: 14px;
+}
+
+.login-compact-guidance
+{
+display: grid; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-secondary); margin-block-start: var(--space-4);
+}
+
+.login-compact-guidance > div
+{
+display: grid; min-height: 58px; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3);
+}
+
+.login-compact-guidance > div + div
+{
+border-block-start: 1px solid var(--border);
+}
+
+.login-compact-guidance > div > span
+{
+display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--surface); color: var(--gov-teal);
+}
+
+.login-compact-guidance > div > span .app-icon
+{
+width: 15px;
+}
+
+.login-compact-guidance p
+{
+display: flex; min-width: 0; flex-direction: column;
+}
+
+.login-compact-guidance strong
+{
+color: var(--gov-ink); font-size: .65rem;
+}
+
+.login-compact-guidance small
+{
+overflow: hidden; font-size: .57rem; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.login-compact-guidance > div > a
+{
+color: var(--primary); font-size: .6rem; font-weight: 750; white-space: nowrap;
+}
+
+.login-compact-guidance footer
+{
+display: flex; min-height: 36px; align-items: center; justify-content: center; gap: var(--space-2); border-block-start: 1px solid var(--border); background: var(--surface); color: var(--text-muted); padding-inline: var(--space-3); font-size: .58rem;
+}
+
+.login-compact-guidance footer .app-icon
+{
+width: 13px;
+}
+
+.login-compact-guidance footer a
+{
+color: var(--primary); font-weight: 750;
+}
+
+/* Balanced government identity and two-page login surface */
+.government-login-page
+{
+display: grid; min-height: 100dvh; grid-template-rows: auto auto minmax(0, 1fr) auto;
+}
+
+.government-login-page .government-login-header
+{
+min-height: 76px;
+}
+
+.government-identity-banner
+{
+position: relative; overflow: hidden; background: linear-gradient(118deg, #071f33 0%, #0a3548 58%, #0b5557 100%); color: var(--on-dark);
+}
+
+.government-identity-banner::before
+{
+position: absolute; inset-block-start: 0; inset-inline: 0; height: 3px; background: linear-gradient(90deg, #239f40 0 33.333%, #fff 33.333% 66.666%, #da0000 66.666%); content: "";
+}
+
+.identity-banner__inner
+{
+position: relative; z-index: 2; display: grid; width: min(100%, 1220px); min-height: 172px; grid-template-columns: .9fr 1.3fr 1fr; align-items: center; gap: clamp(24px, 4vw, 58px); margin-inline: auto; padding: 17px clamp(28px, 4vw, 54px) 21px;
+}
+
+.identity-banner__flag
+{
+display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 7px;
+}
+
+.identity-banner__flag > span
+{
+color: #e6d3a5; font-size: .78rem; font-weight: 750;
+}
+
+.identity-banner__flag > div
+{
+position: relative; width: 136px; padding: 5px; border: 1px solid rgb(226 204 151 / 38%); background: rgb(255 255 255 / 7%); box-shadow: 0 12px 30px rgb(0 0 0 / 22%);
+}
+
+.identity-banner__flag > div::after
+{
+position: absolute; inset: 6px; background: linear-gradient(104deg, transparent 18%, rgb(255 255 255 / 18%) 38%, rgb(0 0 0 / 10%) 62%, transparent 82%); pointer-events: none; content: "";
+}
+
+.identity-banner__flag img
+{
+display: block; width: 100%; aspect-ratio: 7 / 4; object-fit: cover;
+}
+
+.identity-banner__flag small
+{
+color: var(--on-dark-52); font-size: .72rem;
+}
+
+.identity-banner__message
+{
+display: flex; align-items: center; flex-direction: column; text-align: center;
+}
+
+.identity-banner__message > span
+{
+color: #e6d3a5; font-family: var(--font-family); font-size: 1rem;
+}
+
+.identity-banner__message h1
+{
+color: #fff; margin-block: 10px 3px; font-size: clamp(1.65rem, 2.4vw, 2.35rem); line-height: 1.45;
+}
+
+.identity-banner__message p
+{
+color: var(--on-dark-68); font-size: .93rem;
+}
+
+.identity-banner__message > i
+{
+display: block; width: 96px; height: 6px; background: linear-gradient(90deg, transparent, #d7ba77 20% 80%, transparent); margin-block-start: 13px; clip-path: polygon(0 40%, 43% 40%, 50% 0, 57% 40%, 100% 40%, 100% 60%, 57% 60%, 50% 100%, 43% 60%, 0 60%);
+}
+
+.identity-banner__leaders
+{
+display: flex; align-items: flex-end; justify-content: center; gap: 12px;
+}
+
+.identity-banner__leaders figure
+{
+width: 82px; margin: 0; text-align: center;
+}
+
+.identity-banner__leaders img
+{
+display: block; width: 100%; height: 100px; border: 1px solid rgb(226 204 151 / 58%); border-block-end: 3px solid var(--gov-gold); border-radius: 2px; object-fit: cover; object-position: 50% 14%; box-shadow: 0 10px 24px rgb(0 0 0 / 28%); filter: saturate(.76) contrast(1.04);
+}
+
+.identity-banner__leaders figcaption
+{
+overflow: hidden; color: var(--on-dark-82); margin-block-start: 5px; font-size: .7rem; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.identity-banner__credits
+{
+position: absolute; inset-block-end: 5px; inset-inline-end: clamp(28px, 4vw, 54px); color: var(--on-dark-32); font-size: .6rem;
+}
+
+.identity-banner__credits a
+{
+color: var(--on-dark-45); text-decoration: underline; text-underline-offset: 2px;
+}
+
+.government-login-main
+{
+display: block; min-height: 0; background: radial-gradient(circle at 12% 8%, rgb(20 122 120 / 8%), transparent 30%), #eef2f3; padding: clamp(20px, 2.4vw, 30px) clamp(24px, 5vw, 76px);
+}
+
+.portal-spread
+{
+position: relative; display: grid; width: min(100%, 1180px); min-height: 430px; height: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: hidden; border: 1px solid #cbd7dc; border-radius: 22px 22px 34px 34px; background: #fff; box-shadow: 0 24px 60px rgb(12 45 70 / 13%); margin-inline: auto; isolation: isolate;
+}
+
+.portal-spread::before
+{
+position: absolute; z-index: 4; inset-block: 18px 12px; inset-inline-start: 50%; width: 24px; background: linear-gradient(90deg, transparent, rgb(12 45 70 / 7%) 42%, rgb(255 255 255 / 84%) 50%, rgb(12 45 70 / 7%) 58%, transparent); pointer-events: none; transform: translateX(50%); content: "";
+}
+
+.portal-spread::after
+{
+position: absolute; z-index: 5; inset-block-end: 0; inset-inline-start: 7%; width: 86%; height: 15px; border-radius: 50%; background: rgb(12 45 70 / 8%); filter: blur(8px); pointer-events: none; content: "";
+}
+
+.portal-spread__page
+{
+position: relative; z-index: 2; display: flex; min-width: 0; overflow-y: auto; flex-direction: column; padding: clamp(24px, 2.7vw, 34px); scrollbar-width: thin;
+}
+
+.portal-spread__page--question
+{
+background: linear-gradient(100deg, #fff 0%, #fff 72%, #f5f7f7 100%);
+}
+
+.portal-spread__page--gateway
+{
+background: linear-gradient(260deg, #fbfaf6 0%, #fff 72%, #f3f5f3 100%);
+}
+
+.portal-spread__page--question::after, .portal-spread__page--gateway::after
+{
+position: absolute; inset-block-end: 0; width: 88%; height: 22px; border-block-end: 1px solid #bfcbd0; border-radius: 0 0 50% 50%; pointer-events: none; content: "";
+}
+
+.portal-spread__page--question::after
+{
+inset-inline-start: 0;
+}
+
+.portal-spread__page--gateway::after
+{
+inset-inline-end: 0;
+}
+
+.portal-spread__heading
+{
+min-height: 94px; border-block-end: 1px solid #dfe6e8; margin-block-end: 18px; padding-block-end: 15px;
+}
+
+.portal-spread__heading > span
+{
+display: flex; align-items: center; gap: 8px; color: var(--gov-teal); font-size: .86rem; font-weight: 750;
+}
+
+.portal-spread__heading > span .app-icon
+{
+width: 18px;
+}
+
+.portal-spread__heading h2
+{
+color: var(--gov-ink); margin-block: 7px 4px; font-size: 1.38rem;
+}
+
+.portal-spread__heading p
+{
+max-width: 470px; color: var(--text-secondary); font-size: .88rem; line-height: 1.9;
+}
+
+.portal-spread .secure-access-card
+{
+width: 100%; border: 0; border-radius: 0; background: transparent; box-shadow: none; padding: 0;
+}
+
+.portal-spread .secure-access-card::before
+{
+display: none;
+}
+
+.portal-spread .registration-status-question
+{
+background: #f5f8f8;
+}
+
+.portal-spread .registration-status-question h3
+{
+font-size: .98rem;
+}
+
+.portal-spread .registration-status-question p
+{
+font-size: .78rem;
+}
+
+.portal-spread .account-existence-options strong
+{
+font-size: .86rem;
+}
+
+.portal-spread .account-existence-options small
+{
+font-size: .76rem; line-height: 1.8;
+}
+
+.portal-spread .account-existence-options > button
+{
+min-height: 88px; padding: 12px;
+}
+
+.portal-spread .account-existence-options > button
+{
+transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.portal-spread .account-existence-options > button.is-selected
+{
+border-color: #2d6fb7; background: #edf5ff; box-shadow: inset 0 0 0 1px #2d6fb7, 0 7px 18px rgb(45 111 183 / 12%);
+}
+
+.portal-spread .account-existence-options > button.is-selected > span
+{
+background: #2d6fb7; color: #fff;
+}
+
+.portal-spread .account-existence-options > button.is-selected > .app-icon
+{
+color: #2d6fb7;
+}
+
+.portal-spread .citizen-login-branch
+{
+margin-block-start: 16px;
+}
+
+.portal-spread .secure-login-note
+{
+margin-block-start: 24px; font-size: .78rem; line-height: 1.8;
+}
+
+.identity-mode-content
+{
+display: flex; min-height: 224px; flex-direction: column;
+}
+
+.identity-mode-placeholder
+{
+display: flex; min-height: 224px; align-items: center; justify-content: center; flex-direction: column; border: 1px dashed #b9cbd3; border-radius: 12px; background: rgb(255 255 255 / 48%); padding: 28px; text-align: center;
+}
+
+.identity-mode-placeholder > span
+{
+display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: #e8f0f8; color: #2d6fb7;
+}
+
+.identity-mode-placeholder > span .app-icon
+{
+width: 21px;
+}
+
+.identity-mode-placeholder strong
+{
+color: var(--gov-ink); margin-block: 12px 3px; font-size: .96rem;
+}
+
+.identity-mode-placeholder p
+{
+color: var(--text-secondary); font-size: .8rem;
+}
+
+.portal-spread .identity-mode-panel
+{
+margin-block-start: 0;
+}
+
+.registration-guide-callout
+{
+display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; gap: 10px; border: 1px solid #e7d3a2; border-radius: 9px; background: #fff8e8; margin: 14px 16px 0; padding: 10px 12px;
+}
+
+.registration-guide-callout > span
+{
+display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #fff; color: #a77418;
+}
+
+.registration-guide-callout > span .app-icon
+{
+width: 17px;
+}
+
+.registration-guide-callout > div
+{
+display: flex; min-width: 0; flex-direction: column;
+}
+
+.registration-guide-callout strong
+{
+color: #6f5118; font-size: .8rem;
+}
+
+.registration-guide-callout small
+{
+color: #806b43; font-size: .72rem; line-height: 1.7;
+}
+
+.registration-guide-callout > a
+{
+display: flex; align-items: center; gap: 4px; color: #1f5f9e; font-size: .76rem; font-weight: 800; white-space: nowrap;
+}
+
+.registration-guide-callout > a .app-icon
+{
+width: 14px;
+}
+
+.portal-spread .login-compact-guidance
+{
+margin-block-start: auto; background: rgb(255 255 255 / 65%);
+}
+
+.portal-spread .login-compact-guidance strong
+{
+font-size: .84rem;
+}
+
+.portal-spread .login-compact-guidance small
+{
+font-size: .75rem;
+}
+
+.portal-spread .login-compact-guidance > div > a
+{
+font-size: .76rem;
+}
+
+.registration-validation
+{
+display: flex; align-items: center; gap: var(--space-3); border-block-end: 1px solid var(--danger-border); background: var(--danger-soft); color: var(--danger-text); padding: var(--space-3) var(--space-6);
+}
+
+.registration-validation > .app-icon
+{
+width: 20px; flex: 0 0 20px;
+}
+
+.registration-validation > div
+{
+display: flex; flex-direction: column;
+}
+
+.registration-validation strong
+{
+font-size: var(--font-xs);
+}
+
+.registration-validation span
+{
+font-size: .68rem;
+}
+
+.locked-input
+{
+position: relative;
+}
+
+.locked-input input
+{
+width: 100%; border-color: var(--border); background: var(--surface-tertiary); color: var(--text-secondary); padding-inline-end: 40px; cursor: not-allowed;
+}
+
+.locked-input > .app-icon
+{
+position: absolute; inset-block-start: 50%; inset-inline-end: var(--space-3); width: 16px; color: var(--text-muted); transform: translateY(-50%);
+}
+
+.registration-consent
+{
+display: flex; align-items: flex-start; gap: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); margin-block: var(--space-5); padding: var(--space-4);
+}
+
+.registration-consent.has-error
+{
+border-color: var(--danger-border); background: var(--danger-soft);
+}
+
+.registration-consent input
+{
+margin-block-start: 4px;
+}
+
+.registration-consent > span
+{
+display: flex; flex-direction: column;
+}
+
+.registration-consent strong
+{
+font-size: var(--font-xs);
+}
+
+.registration-consent small
+{
+font-size: .68rem;
+}

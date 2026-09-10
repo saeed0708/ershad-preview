@@ -1,0 +1,9 @@
+h1 { font-size: var(--font-page); font-weight: 750; line-height: 1.35; letter-spacing: -.02em; }
+h2 { font-size: var(--font-section); font-weight: 720; line-height: 1.45; }
+h3 { font-size: var(--font-card); font-weight: 700; line-height: 1.5; }
+p { color: var(--text-secondary); }
+small { color: var(--text-muted); font-size: var(--font-xs); }
+strong { font-weight: 700; }
+code, bdi[dir="ltr"], [dir="ltr"] { font-family: var(--font-family); letter-spacing: .01em; }
+.eyebrow { display: block; color: var(--primary); font-size: var(--font-xs); font-weight: 750; letter-spacing: .01em; }
+.visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }

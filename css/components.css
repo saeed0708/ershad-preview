@@ -1,0 +1,148 @@
+/*
+ * Shared applicant-portal components used across identity, dashboard,
+ * profile, and publishing-license features.
+ */
+.skip-link:focus
+{
+transform: translateY(0);
+}
+
+.avatar
+{
+display: grid; width: 36px; height: 36px; flex: 0 0 36px; place-items: center; border-radius: 50%; background: var(--primary-soft); color: var(--primary); font-size: var(--font-xs); font-weight: 750;
+}
+
+.icon-button
+{
+display: inline-grid; width: 40px; height: 40px; flex: 0 0 40px; place-items: center; border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--text-secondary); transition: background .15s ease, color .15s ease;
+}
+
+.icon-button:hover
+{
+background: var(--surface-tertiary); color: var(--primary);
+}
+
+.icon-button .app-icon
+{
+width: 20px; height: 20px;
+}
+
+.standalone-layout
+{
+min-height: 100dvh;
+}
+
+.button
+{
+display: inline-flex; min-height: 40px; align-items: center; justify-content: center; gap: var(--space-2); border: 1px solid transparent; border-radius: var(--radius-sm); padding: 0 var(--space-4); font-size: var(--font-sm); font-weight: 700; transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.button .app-icon
+{
+width: 18px;
+}
+
+.button--primary
+{
+background: var(--primary); color: var(--on-dark);
+}
+
+.button--primary:hover
+{
+background: var(--primary-hover);
+}
+
+.button--secondary
+{
+border-color: var(--border-strong); background: var(--surface); color: var(--primary);
+}
+
+.button--secondary:hover
+{
+border-color: var(--primary); background: var(--primary-soft);
+}
+
+.button--block
+{
+width: 100%;
+}
+
+.status-badge
+{
+display: inline-flex; min-height: 26px; align-items: center; gap: 5px; border: 1px solid transparent; border-radius: 999px; padding: 2px var(--space-2); font-size: var(--font-xs); font-weight: 650; line-height: 1.3; white-space: nowrap;
+}
+
+.status-badge .app-icon
+{
+width: 14px; height: 14px;
+}
+
+input[type="checkbox"], input[type="radio"]
+{
+width: 18px; height: 18px; accent-color: var(--primary);
+}
+
+.form-field
+{
+display: flex; min-width: 0; flex-direction: column; gap: 6px;
+}
+
+.form-field > label, .form-field > span:first-child
+{
+color: var(--text); font-size: var(--font-sm); font-weight: 650;
+}
+
+.required-indicator
+{
+color: var(--danger);
+}
+
+.form-field input:not([type="checkbox"]):not([type="radio"]), .form-field select, .form-field textarea, .input-with-icon
+{
+width: 100%; min-height: 44px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface); padding: var(--space-2) var(--space-3); outline: 0;
+}
+
+.form-field textarea
+{
+min-height: 96px;
+}
+
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus, .input-with-icon:focus-within
+{
+border-color: var(--focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 16%, transparent);
+}
+
+.help-text
+{
+display: flex; align-items: flex-start; gap: var(--space-1);
+}
+
+.help-text .app-icon
+{
+width: 14px; flex: 0 0 14px; margin-block-start: 3px;
+}
+
+.field-error
+{
+color: var(--danger); font-size: var(--font-xs);
+}
+
+.toast
+{
+position: fixed; z-index: 200; inset-block-end: var(--space-6); inset-inline-end: var(--space-6); display: grid; width: min(420px, calc(100vw - 32px)); min-height: 56px; grid-template-columns: 24px minmax(0, 1fr) 40px; align-items: center; gap: var(--space-2); border: 1px solid var(--border); border-inline-start: 4px solid var(--info); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); padding: var(--space-2) var(--space-3);
+}
+
+.toast--success
+{
+border-inline-start-color: var(--success);
+}
+
+.toast--warning
+{
+border-inline-start-color: var(--warning);
+}
+
+.toast > .app-icon
+{
+width: 20px;
+}
