@@ -1,0 +1,692 @@
+/* Book permit services. Shared components, scoped to this feature. */
+.preprint-page { display: grid; gap: 24px; min-width: 0; color: var(--text); }
+.preprint-page-header, .preprint-page > header, .preprint-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.preprint-page h1 { color: var(--navy-900); font-size: clamp(1.3rem, 2vw, 1.65rem); font-weight: 800; }
+.preprint-page h2 { color: var(--navy-900); font-size: 1rem; font-weight: 750; }
+.preprint-page h3 { color: var(--navy-900); font-size: .9rem; }
+.preprint-page p { margin-block: 6px 0; color: var(--text-secondary); font-size: .8rem; line-height: 1.9; }
+.preprint-kicker, .preprint-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-block-end: 6px; color: var(--primary); font-size: .72rem; font-weight: 650; }
+.preprint-demo-badge { flex-shrink: 0; padding: 6px 11px; border: 1px solid var(--warning-border); border-radius: 99px; background: var(--warning-soft); color: var(--warning-text); font-size: .67rem; }
+.preprint-card, .preprint-search-panel, .preprint-detail-panel, .preprint-permit-preview { min-width: 0; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow-sm); }
+.preprint-card { padding: 28px; }
+.preprint-registration-details { margin-block-start: 12px; max-width: 420px; }
+.preprint-registration-details summary { cursor: pointer; color: var(--primary); font-size: .72rem; }
+.preprint-registration-summary { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 380px; overflow-y: auto; margin-block: 14px 0; padding: 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-secondary); font: inherit; font-size: .72rem; line-height: 2; }
+.preprint-live-title-page .preprint-live-original-title, .preprint-live-original-title { margin-block: 12px; font-size: .8rem; text-align: center; overflow-wrap: anywhere; }
+.preprint-card > section + section, .preprint-card > .preprint-form { margin-block-start: 28px; }
+.preprint-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-block-end: 20px; }
+.preprint-stepper { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; list-style: none; }
+.preprint-stepper button { display: flex; width: 100%; min-height: 68px; align-items: center; gap: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text-secondary); padding: 14px 18px; text-align: start; cursor: pointer; }
+.preprint-stepper li.is-current button, .preprint-stepper .is-active, .preprint-stepper .is-current, .preprint-stepper button[aria-current="step"] { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
+.preprint-stepper button > span:first-child { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border: 1px solid var(--border-strong); border-radius: 50%; font-weight: 700; }
+.preprint-stepper strong { display: block; font-size: .8rem; }
+.preprint-stepper small { display: block; color: var(--text-muted); font-size: .68rem; }
+.preprint-stepper--book { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.preprint-stepper--book button { min-height: 88px; padding: 10px 5px; gap: 8px; flex-direction: column; justify-content: flex-start; text-align: center; }
+.preprint-stepper--book strong { font-size: .66rem; line-height: 1.7; overflow-wrap: anywhere; }
+.preprint-form > h3 { margin-block: 26px 14px; }
+.preprint-contributor-card { border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-block: 20px; }
+.preprint-contributor-heading { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-block-end: 16px; }
+.preprint-contributor-heading .preprint-text-button { display: inline-flex; align-items: center; gap: 5px; }
+.preprint-contributor-heading .app-icon { width: 15px; height: 15px; }
+.preprint-imprint-extras, .preprint-book-separate-files, .preprint-book-review-section { border: 1px solid var(--border); border-radius: 9px; padding: 16px; margin-block: 22px; background: var(--surface-secondary); }
+.preprint-imprint-extras summary, .preprint-book-separate-files summary, .preprint-book-review-section summary { cursor: pointer; font-size: .78rem; font-weight: 650; color: var(--navy-900); }
+.preprint-imprint-extras[open] summary, .preprint-book-separate-files[open] summary, .preprint-book-review-section[open] summary { margin-block-end: 18px; }
+.preprint-book-review-section summary span { margin-inline-start: 10px; color: var(--text-muted); font-size: .66rem; font-weight: 400; }
+.preprint-book-review-section .preprint-review { margin-block: 18px; }
+.preprint-form > .preprint-file-field { margin-block-start: 24px; }
+.preprint-type-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-block-end: 28px; }
+.preprint-type-card { display: flex; min-width: 0; min-height: 104px; flex-direction: column; align-items: flex-start; gap: 6px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text-secondary); padding: 16px; text-align: start; cursor: pointer; transition: border-color 160ms, background 160ms; }
+.preprint-type-card > .app-icon { width: 24px; color: var(--primary); margin-block-end: 4px; }
+.preprint-type-card strong { color: var(--navy-900); font-size: .8rem; }
+.preprint-type-card small { color: var(--text-muted); font-size: .66rem; line-height: 1.7; }
+.preprint-type-card.is-selected, .preprint-type-card[aria-pressed="true"] { border-color: var(--primary); background: var(--primary-soft); box-shadow: inset 0 0 0 1px var(--primary); }
+.preprint-type-card:disabled { cursor: not-allowed; background: var(--surface-secondary); opacity: .58; }
+.preprint-kind-label { display: inline-flex; align-items: center; gap: 7px; margin-block-end: 24px; padding: 6px 10px; border-radius: 6px; background: var(--primary-soft); color: var(--primary); font-size: .7rem; }
+.preprint-kind-label .app-icon { width: 16px; height: 16px; }
+.preprint-title-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(150px, 1fr); align-items: start; gap: 28px; }
+.preprint-title-fields { display: grid; gap: 16px; padding-block-start: 12px; }
+.preprint-title-preview { margin: 0; }
+.preprint-title-sheet { min-height: 260px; padding: 64px 18px 28px; border: 1px solid var(--border); background: var(--surface); box-shadow: 0 6px 18px rgb(11 34 57 / 6%); text-align: center; }
+.preprint-title-sheet strong { display: block; color: var(--navy-900); font-size: .92rem; overflow-wrap: anywhere; line-height: 2; }
+.preprint-title-sheet .is-placeholder { color: var(--text-muted); font-weight: 500; }
+.preprint-title-preview figcaption { margin-block-start: 10px; color: var(--text-muted); font-size: .65rem; text-align: center; }
+.preprint-fields, .preprint-filter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.preprint-fields > .full-width, .preprint-fields > .preprint-field--wide { grid-column: 1 / -1; }
+.preprint-page .form-field, .preprint-field { display: grid; min-width: 0; gap: 8px; align-content: start; }
+.preprint-page .form-field label, .preprint-field > span { color: var(--navy-900); font-size: .76rem; font-weight: 650; }
+.preprint-page input:not([type="radio"]):not([type="checkbox"]):not([type="file"]), .preprint-page select, .preprint-page textarea { display: block; width: 100%; min-width: 0; min-height: 46px; border: 1px solid var(--border-strong); border-radius: 7px; background: var(--surface); color: var(--text); padding: 10px 13px; font: inherit; font-size: .82rem; }
+.preprint-page textarea { min-height: 100px; resize: vertical; }
+.preprint-page input::placeholder { color: var(--text-muted); font-size: .76rem; }
+.preprint-page input:focus-visible, .preprint-page select:focus-visible, .preprint-page textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.preprint-page .button { min-height: 42px; padding: 10px 18px; font-size: .76rem; white-space: nowrap; }
+.preprint-page .button .app-icon { width: 18px; }
+.preprint-results-heading, .preprint-results-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--text-muted); font-size: .72rem; }
+.preprint-results-heading { margin-block: 24px 12px; }
+.preprint-results-bar { margin-block-end: -10px; }
+.preprint-results-bar strong { color: var(--text); }
+.preprint-text-button, .preprint-icon-button { border: 0; background: transparent; color: var(--primary); cursor: pointer; }
+.preprint-text-button { padding: 5px 0; font-size: .72rem; }
+.preprint-text-button:hover { text-decoration: underline; }
+.preprint-icon-button { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 6px; }
+.preprint-icon-button:hover { background: var(--surface-tertiary); }
+.preprint-book-results { display: grid; gap: 10px; }
+.preprint-book-option { display: flex; width: 100%; min-width: 0; align-items: center; gap: 14px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); color: var(--text); padding: 16px; text-align: start; cursor: pointer; }
+.preprint-book-option.is-selected { border-color: var(--primary); background: #f5f9fc; box-shadow: inset 0 0 0 1px var(--primary); }
+.preprint-book-option__icon { display: grid; width: 42px; height: 46px; flex: 0 0 42px; place-items: center; border-radius: 8px; background: var(--primary-soft); color: var(--primary); }
+.preprint-book-option__content { display: grid; min-width: 0; gap: 5px; }
+.preprint-book-option__content strong { font-size: .84rem; }
+.preprint-book-option__content small { color: var(--text-muted); font-size: .7rem; }
+.preprint-book-option__identifiers { display: flex; flex-wrap: wrap; gap: 14px; color: var(--text-secondary); font-size: .66rem; }
+.preprint-selection-label { margin-inline-start: auto; color: var(--primary); font-size: .7rem; white-space: nowrap; }
+.preprint-origin { display: flex; flex-wrap: wrap; gap: 20px; border: 0; border-block-start: 1px solid var(--border); margin-block-start: 24px; padding-block-start: 16px; }
+.preprint-origin legend { padding-block-start: 20px; color: var(--text-secondary); font-size: .74rem; }
+.preprint-origin label { display: flex; align-items: center; gap: 8px; font-size: .76rem; }
+.preprint-page input[type="radio"], .preprint-page input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--primary); }
+.preprint-actions, .preprint-search-actions, .preprint-detail-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.preprint-actions { justify-content: flex-end; border-block-start: 1px solid var(--border); margin-block-start: 26px; padding-block-start: 22px; }
+.preprint-search-actions { margin-block-start: 18px; }
+.preprint-muted { color: var(--text-muted); font-size: .72rem; }
+.preprint-file-field { border: 1px dashed var(--border-strong); border-radius: 9px; background: var(--surface-secondary); padding: 18px; margin-block-start: 20px; }
+.preprint-file-field__heading { display: grid; gap: 5px; margin-block-end: 16px; }
+.preprint-file-field__heading strong { color: var(--navy-900); font-size: .8rem; }
+.preprint-file-field__heading small { color: var(--text-muted); font-size: .7rem; }
+.preprint-file-field__control { display: flex; min-width: 0; align-items: center; flex-wrap: wrap; gap: 12px; }
+.preprint-file-picker { position: relative; overflow: hidden; cursor: pointer; }
+.preprint-file-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.preprint-file-name { min-width: 0; max-width: 100%; color: var(--primary); font-size: .74rem; overflow-wrap: anywhere; }
+.preprint-notice, .preprint-note { display: flex; align-items: flex-start; gap: 12px; border: 1px solid var(--info-border); border-radius: 9px; background: #f4f9fc; color: var(--info-text); padding: 16px 18px; }
+.preprint-notice { margin-block: 20px; }
+.preprint-note > .app-icon, .preprint-notice > .app-icon { flex: 0 0 20px; width: 20px; margin-block-start: 2px; }
+.preprint-note strong, .preprint-notice strong { font-size: .8rem; }
+.preprint-note p, .preprint-notice p { color: var(--info-text-muted); font-size: .74rem; }
+.preprint-notice--warning { border-color: var(--warning-border); background: var(--warning-soft); color: var(--warning-text); }
+.preprint-otp-panel { border: 1px solid var(--border); border-radius: 10px; margin-block-start: 22px; padding: 20px; }
+.preprint-otp-panel .preprint-fields { margin-block: 18px; }
+.preprint-otp-panel .button { margin-block-start: 10px; }
+.preprint-summary, .preprint-detail-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.preprint-summary > div, .preprint-detail-meta > div { min-width: 0; }
+.preprint-summary dt, .preprint-detail-meta dt { color: var(--text-muted); font-size: .7rem; margin-block-end: 6px; }
+.preprint-summary dd, .preprint-detail-meta dd { color: var(--navy-900); font-size: .8rem; font-weight: 650; overflow-wrap: anywhere; }
+.preprint-review > .preprint-summary { margin-block: 22px; }
+.preprint-review { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-block: 24px; }
+.preprint-review dt { color: var(--text-muted); font-size: .72rem; margin-block-end: 5px; }
+.preprint-review dd { color: var(--navy-900); font-size: .8rem; overflow-wrap: anywhere; }
+.preprint-review-book { display: flex; align-items: center; gap: 12px; border-radius: 8px; background: var(--primary-soft); padding: 16px; }
+.preprint-review-book > .app-icon { color: var(--primary); }
+.preprint-review-book strong, .preprint-review-book small { display: block; }
+.preprint-review-book small { color: var(--text-secondary); margin-block-start: 4px; font-size: .74rem; }
+.preprint-otp-grid, .preprint-files-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.preprint-otp-panel { display: grid; gap: 12px; }
+.preprint-otp-panel > small { color: var(--primary); font-size: .75rem; }
+.preprint-consent { display: flex; align-items: flex-start; gap: 10px; margin-block-start: 22px; font-size: .74rem; }
+.preprint-consent input { flex-shrink: 0; margin-block-start: 3px; }
+.preprint-file-note { display: flex; align-items: center; gap: 8px; font-size: .7rem !important; margin-block-start: 18px !important; }
+.preprint-file-note .app-icon { width: 16px; flex-shrink: 0; }
+.preprint-form > .preprint-fields + .preprint-fields { margin-block-start: 24px; }
+.preprint-actions > .preprint-muted { margin-inline-end: auto; }
+.preprint-actions > div { display: flex; gap: 10px; flex-wrap: wrap; }
+.preprint-type-card > span { display: grid; gap: 6px; }
+.preprint-type-card > .app-icon:last-child:not(:first-child) { width: 16px; align-self: flex-end; margin-block-end: 0; }
+.preprint-fipa-lookup { border: 1px solid var(--border); border-radius: 9px; background: var(--surface); padding: 18px; font-size: .78rem; }
+.preprint-fipa-lookup summary { cursor: pointer; color: var(--primary); }
+.preprint-fipa-lookup form { display: flex; align-items: flex-end; gap: 12px; margin-block-start: 18px; }
+.preprint-fipa-lookup .preprint-field { flex: 1; }
+.preprint-field-error { color: var(--danger) !important; font-size: .75rem !important; }
+.preprint-preview-watermark { display: grid; gap: 8px; }
+.preprint-preview-watermark .app-icon { width: 20px; }
+.preprint-preview-watermark span, .preprint-detail-actions > span { color: var(--text-muted); font-size: .72rem; }
+.preprint-review ul { display: grid; gap: 8px; margin-block: 20px; padding-inline-start: 20px; color: var(--text-secondary); font-size: .8rem; }
+.preprint-tabs { display: flex; min-width: 0; gap: 6px; overflow-x: auto; border-block-end: 1px solid var(--border); padding-block-end: 0; }
+.preprint-tabs button, .preprint-tabs a { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; border: 0; border-block-end: 3px solid transparent; background: transparent; color: var(--text-secondary); padding: 10px 15px; font-size: .77rem; white-space: nowrap; cursor: pointer; }
+.preprint-tabs button.active, .preprint-tabs a.active, .preprint-tabs a.is-active, .preprint-tabs button[aria-pressed="true"] { border-block-end-color: var(--primary); color: var(--primary); font-weight: 750; }
+.preprint-tabs button > span { padding: 1px 7px; border-radius: 99px; background: var(--surface-tertiary); font-size: .66rem; }
+.preprint-tabs button.active > span { background: var(--primary-soft); }
+.preprint-search-panel { padding: 22px; }
+.preprint-table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+.preprint-table { width: 100%; border-collapse: collapse; text-align: start; font-size: .74rem; }
+.preprint-table th { border-block-end: 1px solid var(--border); background: var(--surface-secondary); color: var(--text-secondary); padding: 14px 16px; text-align: start; font-size: .67rem; font-weight: 650; white-space: nowrap; }
+.preprint-table td { border-block-end: 1px solid var(--border); padding: 16px; color: var(--text-secondary); vertical-align: middle; }
+.preprint-table tr:last-child td { border-block-end: 0; }
+.preprint-table tbody tr:hover { background: var(--table-hover); }
+.preprint-table td > strong { display: block; min-width: 145px; color: var(--navy-900); font-size: .79rem; }
+.preprint-table td > small { display: block; margin-block-start: 5px; color: var(--text-muted); font-size: .67rem; text-align: start; }
+.preprint-table .button { min-height: 34px; padding: 6px 12px; font-size: .7rem; }
+.preprint-status-badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; background: var(--primary-soft); color: var(--primary); padding: 5px 9px; font-size: .64rem; font-weight: 650; white-space: nowrap; }
+.preprint-status-badge::before { width: 5px; height: 5px; border-radius: 50%; background: currentColor; content: ""; }
+.preprint-status-badge.is-success { background: var(--success-soft); color: var(--success-text); }
+.preprint-status-badge.is-warning { background: var(--warning-soft); color: var(--warning-text); }
+.preprint-status-badge.is-muted { background: var(--surface-tertiary); color: var(--text-secondary); }
+.preprint-empty, .preprint-empty-state { display: grid; gap: 8px; justify-items: center; border: 1px dashed var(--border-strong); border-radius: 10px; background: var(--surface); padding: 36px 20px; text-align: center; }
+.preprint-empty > .app-icon, .preprint-empty-state > .app-icon { width: 28px; height: 28px; color: var(--text-muted); margin-block-end: 8px; }
+.preprint-empty .button { margin-block-start: 10px; }
+.preprint-status-legend { border-block-start: 1px solid var(--border); padding-block-start: 18px; color: var(--text-secondary); font-size: .74rem; }
+.preprint-status-legend summary { cursor: pointer; }
+.preprint-status-legend > div { display: flex; flex-wrap: wrap; gap: 10px; margin-block-start: 14px; }
+.preprint-status-legend > div > span { padding: 4px 9px; border-radius: 6px; background: var(--surface-tertiary); font-size: .67rem; }
+.preprint-detail-panel, .preprint-permit-preview { padding: 26px; }
+.preprint-detail-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-block-end: 24px; }
+.preprint-detail-meta { border-block-end: 1px solid var(--border); padding-block-end: 20px; margin-block-end: 24px; }
+.preprint-progress { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-block: 24px; padding: 0; list-style: none; }
+.preprint-progress li { display: flex; min-width: 0; align-items: flex-start; gap: 10px; position: relative; color: var(--text-muted); }
+.preprint-progress li > span { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border: 1px solid var(--border); border-radius: 50%; background: var(--surface-tertiary); font-size: .78rem; }
+.preprint-progress li strong { display: block; font-size: .76rem; }
+.preprint-progress li small { display: block; margin-block-start: 4px; font-size: .66rem; }
+.preprint-progress .is-complete { color: var(--success-text); }
+.preprint-progress .is-complete > span { border-color: var(--success-border); background: var(--success-soft); }
+.preprint-progress .is-current { color: var(--primary); }
+.preprint-progress .is-current > span { border-color: var(--primary); background: var(--primary-soft); box-shadow: 0 0 0 4px #eaf1f680; }
+.preprint-progress .app-icon { width: 17px; }
+.preprint-detail-disclaimer { margin-block-start: 18px !important; font-size: .69rem !important; }
+.preprint-permit-preview { position: relative; overflow: hidden; }
+.preprint-preview-watermark { border-block-end: 1px solid var(--warning-border); margin-block-end: 22px; padding-block-end: 12px; color: var(--warning-text); font-size: .75rem; font-weight: 700; }
+.preprint-permit-preview .preprint-detail-actions { margin-block-start: 24px; }
+.preprint-lookup-result { border-radius: 8px; background: var(--primary-soft); padding: 16px; margin-block-start: 18px; font-size: .78rem; }
+/* Allow newly expanded services to remain accessible on short viewports. */
+/* Live book pages sit to the right of the editor in the RTL workspace. */
+.preprint-card--book { container: book-request / inline-size; }
+.preprint-book-workspace { display: grid; grid-template-columns: minmax(220px, .95fr) minmax(0, 1.05fr); align-items: start; gap: 26px; }
+.preprint-book-editor { min-width: 0; container: book-editor / inline-size; }
+.preprint-book-editor .preprint-fields, .preprint-book-editor .preprint-files-grid, .preprint-book-editor .preprint-review { grid-template-columns: minmax(0, 1fr); }
+.preprint-book-editor .preprint-review { margin-inline: 0; }
+.preprint-book-editor .preprint-contributor-card { padding: 16px; }
+.preprint-live-panel { position: sticky; top: 92px; min-width: 0; }
+.preprint-live-preview { min-width: 0; width: min(100%, 390px); margin-inline: auto; }
+.preprint-live-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-block-end: 14px; }
+.preprint-live-heading > div { display: grid; gap: 4px; }
+.preprint-live-heading strong { color: var(--navy-900); font-size: .8rem; }
+.preprint-live-heading span, .preprint-live-heading small { color: var(--text-muted); font-size: .67rem; }
+.preprint-live-sheet { display: flex; flex-direction: column; min-width: 0; min-height: 370px; max-height: min(72vh, 680px); aspect-ratio: 1 / 1.414; overflow-y: auto; scrollbar-width: thin; border: 1px solid #dfe2dc; background: #fffefa; box-shadow: 0 8px 24px rgb(11 34 57 / 8%); padding: 26px 20px 16px; color: #233340; }
+.preprint-live-sheet h2, .preprint-live-sheet h3 { color: #233340; }
+.preprint-live-title-page { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; padding-block-start: 36px; text-align: center; }
+.preprint-live-sheet .preprint-live-book-title { margin-block: 0 22px; font-size: 1.15rem; line-height: 2; overflow-wrap: anywhere; white-space: pre-wrap; }
+.preprint-live-sheet .preprint-live-book-title--small { margin-block: 8px 22px; font-size: 1rem; text-align: center; }
+.preprint-live-title-contributor { display: grid; gap: 4px; margin-block: 12px; font-size: .88rem; }
+.preprint-live-sheet .preprint-live-subtitle { margin-block: -8px 24px; color: #52616d; font-size: .88rem; text-align: center; white-space: pre-wrap; overflow-wrap: anywhere; }
+.preprint-live-book-metadata { display: grid; gap: 6px; margin-block-start: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-secondary); }
+.preprint-live-book-metadata span, .preprint-live-book-metadata small { color: var(--text-muted); font-size: .67rem; }
+.preprint-live-book-metadata strong { color: var(--navy-900); font-size: .78rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.preprint-live-title-contributor small, .preprint-live-contributor small { color: #61717c; font-size: .72rem; }
+.preprint-live-title-publisher { display: grid; gap: 6px; margin-block-start: auto; padding-block: 36px 18px; font-size: .85rem; }
+.preprint-live-fipa-space { min-height: 56px; flex: 1; }
+.preprint-live-fipa { border-block: 1px solid #68727b; padding-block: 12px; }
+.preprint-live-fipa h2 { margin-block-end: 12px; font-size: .9rem; }
+.preprint-live-catalog { display: grid; gap: 9px; margin: 0; font-size: .82rem; line-height: 1.9; }
+.preprint-live-catalog > div { display: flex; flex-wrap: wrap; column-gap: 6px; align-items: baseline; min-width: 0; }
+.preprint-live-catalog dt { color: #52616d; font-weight: 600; }
+.preprint-live-catalog dd { min-width: 0; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.preprint-live-contributors { display: grid; gap: 24px; text-align: center; padding-block: 12px 20px; }
+.preprint-live-contributor { display: grid; gap: 6px; }
+.preprint-live-contributor h3 { font-size: .92rem; overflow-wrap: anywhere; }
+.preprint-live-contributor > span { font-size: .8rem; overflow-wrap: anywhere; }
+.preprint-live-section { margin-block: 8px 20px; }
+.preprint-live-section h3 { margin-block-end: 10px; font-size: .9rem; }
+.preprint-live-sheet .preprint-live-text { color: #233340; font-size: .85rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.preprint-live-sheet .preprint-live-meta { color: #52616d; font-size: .77rem; }
+.preprint-live-dedication { padding-block: 18px; text-align: center; }
+.preprint-live-sheet .preprint-live-file-note { color: #61717c; font-size: .7rem; }
+.preprint-live-sheet .is-placeholder, .preprint-live-sheet .preprint-live-placeholder { color: #97a2a8; font-weight: 400; }
+.preprint-live-footer { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-block-start: auto; padding-block-start: 20px; color: #7d878e; font-size: .61rem; line-height: 1.8; }
+@container book-editor (min-width: 480px) {
+  .preprint-book-editor .preprint-fields, .preprint-book-editor .preprint-files-grid, .preprint-book-editor .preprint-review { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container book-request (max-width: 480px) {
+  .preprint-book-workspace { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .preprint-live-panel { position: static; }
+  .preprint-live-sheet { min-height: 330px; max-height: 430px; }
+}
+.applicant-desktop .onboarding-nav { min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #456477 transparent; }
+.applicant-desktop .onboarding-nav > a, .applicant-desktop .onboarding-nav > button { flex-shrink: 0; }
+.applicant-desktop .onboarding-sidebar__brand, .applicant-desktop .onboarding-user-summary, .applicant-desktop .onboarding-account-progress, .applicant-desktop .onboarding-sidebar__footer { flex-shrink: 0; }
+@media (max-width: 1100px) {
+  .preprint-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .preprint-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .preprint-stepper--book { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .preprint-title-layout { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .preprint-title-preview { width: min(100%, 240px); justify-self: center; }
+  .preprint-review, .preprint-otp-grid, .preprint-files-grid { grid-template-columns: minmax(0, 1fr); }
+  .preprint-fipa-lookup form { align-items: stretch; flex-direction: column; }
+  .preprint-page { gap: 18px; }
+  .preprint-page-header, .preprint-page > header, .preprint-header { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .preprint-card, .preprint-search-panel, .preprint-detail-panel, .preprint-permit-preview { padding: 18px; }
+  .preprint-fields, .preprint-filter-grid, .preprint-detail-meta, .preprint-summary { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .preprint-stepper { gap: 6px; }
+  .preprint-stepper button { min-height: 84px; flex-direction: column; gap: 7px; padding: 10px 6px; text-align: center; }
+  .preprint-stepper strong { font-size: .66rem; }
+  .preprint-stepper small { display: none; }
+  .preprint-type-card { padding: 12px; }
+  .preprint-book-option { flex-wrap: wrap; gap: 10px; padding: 14px; }
+  .preprint-book-option__content { flex: 1; }
+  .preprint-selection-label { margin-inline-start: 52px; }
+  .preprint-actions .button { flex: 1; }
+  .preprint-progress { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .preprint-tabs button { padding-inline: 10px; font-size: .71rem; }
+}
+
+/* Aggregate registration only; service lists and sidebar are unchanged. */
+.preprint-aggregate-workspace .preprint-multi-picker { display: grid; min-width: 0; gap: 8px; }
+.preprint-aggregate-workspace .preprint-multi-picker > label { color: var(--navy-900); font-size: .76rem; font-weight: 650; }
+.preprint-aggregate-workspace .preprint-multi-picker details { border: 1px solid var(--border-strong); border-radius: 7px; background: var(--surface); }
+.preprint-aggregate-workspace .preprint-multi-picker summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 13px; cursor: pointer; color: var(--text); font-size: .78rem; }
+.preprint-aggregate-workspace .preprint-multi-picker summary span { overflow-wrap: anywhere; }
+.preprint-aggregate-workspace .preprint-multi-picker summary small { white-space: nowrap; color: var(--primary); font-size: .66rem; }
+.preprint-aggregate-workspace .preprint-multi-picker summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.preprint-aggregate-workspace .preprint-multi-picker__body { display: grid; gap: 14px; padding: 0 13px 14px; }
+.preprint-aggregate-workspace .preprint-multi-picker__options { display: grid; gap: 7px; max-height: 225px; overflow-y: auto; scrollbar-width: thin; }
+.preprint-aggregate-workspace .preprint-multi-picker__options label { display: flex; align-items: flex-start; gap: 10px; padding: 7px; font-size: .76rem; line-height: 1.8; cursor: pointer; border-radius: 5px; }
+.preprint-aggregate-workspace .preprint-multi-picker__options label:has(input:checked) { background: var(--primary-soft); color: var(--primary); }
+.preprint-aggregate-workspace .preprint-multi-picker__options input { flex-shrink: 0; margin-block-start: 3px; }
+.preprint-aggregate-workspace .preprint-multi-picker__custom { display: grid; gap: 8px; }
+.preprint-aggregate-workspace .preprint-contributor-roles { border: 0; margin: 0 0 18px; padding: 0; min-width: 0; }
+.preprint-aggregate-workspace .preprint-contributor-roles legend { color: var(--navy-900); font-size: .76rem; font-weight: 650; }
+.preprint-aggregate-workspace .preprint-choice-list { display: flex; flex-wrap: wrap; gap: 8px; margin-block-start: 10px; }
+.preprint-aggregate-workspace .preprint-choice { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--border); border-radius: 7px; padding: 9px 10px; cursor: pointer; font-size: .72rem; }
+.preprint-aggregate-workspace .preprint-choice:has(input:checked) { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
+.preprint-aggregate-workspace .preprint-contributor-roles + .preprint-multi-picker { margin-block-end: 18px; }
+.preprint-aggregate-workspace .preprint-reprint-fields, .preprint-aggregate-workspace .preprint-conference-card { margin-block: 18px; border: 1px solid var(--border); border-radius: 9px; padding: 16px; background: var(--surface-secondary); }
+.preprint-aggregate-workspace .preprint-reprint-fields h3 { margin-block-end: 16px; }
+.preprint-aggregate-workspace .preprint-supplementary-catalogs { border-block: 1px solid var(--border); margin-block: 22px; padding-block: 16px; }
+.preprint-aggregate-workspace .preprint-supplementary-catalogs summary { cursor: pointer; color: var(--primary); font-size: .78rem; }
+.preprint-aggregate-workspace .preprint-supplementary-catalogs[open] summary { margin-block-end: 18px; }
+.preprint-aggregate-workspace .preprint-conferences { margin-block-start: 26px; padding-block-start: 20px; border-block-start: 1px solid var(--border); }
+.preprint-aggregate-workspace .preprint-conference-card > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-block-end: 14px; font-size: .8rem; }
+.preprint-aggregate-workspace input[readonly] { background: var(--surface-secondary); color: var(--text-muted); }
+
+/* Book sections use paper; process metadata is deliberately not a printed page. */
+.preprint-aggregate-workspace .preprint-live-sheet--data { aspect-ratio: auto; min-height: 280px; background: var(--surface-secondary); border-color: var(--border); border-radius: 10px; box-shadow: none; }
+.preprint-aggregate-workspace .preprint-shared-data { display: grid; gap: 8px; padding: 14px; margin-block-end: 22px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-secondary); font-size: .76rem; overflow-wrap: anywhere; }
+.preprint-aggregate-workspace .preprint-shared-data span { color: var(--text-muted); font-size: .7rem; }
+.preprint-aggregate-workspace .preprint-book-editor > .preprint-form + .preprint-form { margin-block-start: 28px; padding-block-start: 22px; border-block-start: 1px solid var(--border); }
+.preprint-table tr.is-new-book { background: var(--primary-soft); }
+.preprint-new-book-note { padding: 12px 16px; margin-block-end: 18px; border: 1px solid var(--success-border); border-radius: 8px; background: var(--success-soft); color: var(--success-text); font-size: .76rem; }
+
+/* Aggregate entry: the document on the right, its editor on the left. */
+.preprint-aggregate-workspace {
+  direction: rtl;
+  grid-template-columns: minmax(280px, .95fr) minmax(0, 1.05fr);
+  gap: 30px;
+}
+.preprint-aggregate-workspace > .preprint-live-panel {
+  grid-column: 1;
+  grid-row: 1;
+  top: 92px;
+  max-height: calc(100dvh - 116px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding: 4px 8px 18px;
+}
+.preprint-aggregate-workspace > .preprint-book-editor {
+  grid-column: 2;
+  grid-row: 1;
+}
+.preprint-aggregate-workspace--general {
+  grid-template-columns: minmax(0, 1fr);
+}
+.preprint-aggregate-workspace--general > .preprint-book-editor {
+  grid-column: 1;
+}
+.preprint-aggregate-workspace--general .preprint-form {
+  max-width: 960px;
+  margin-inline: auto;
+}
+.preprint-aggregate-workspace .preprint-live-preview {
+  width: min(100%, 420px);
+}
+.preprint-aggregate-workspace .preprint-live-heading {
+  align-items: flex-start;
+  margin-block-end: 12px;
+}
+.preprint-aggregate-workspace .preprint-live-heading strong {
+  font-size: .85rem;
+  line-height: 1.8;
+}
+.preprint-aggregate-workspace .preprint-live-heading small {
+  line-height: 1.8;
+}
+.preprint-aggregate-workspace .preprint-preview-explainer {
+  margin-block: 12px 0;
+  color: var(--text-muted);
+  font-size: .67rem;
+  line-height: 1.9;
+}
+.preprint-aggregate-workspace .preprint-live-sheet {
+  min-height: 440px;
+  max-height: none;
+  overflow: visible;
+  aspect-ratio: 1 / 1.414;
+  padding: 34px 26px 28px;
+  border-color: #e2e0d8;
+  background: #fffef9;
+  box-shadow: 0 5px 20px rgb(30 43 51 / 7%);
+  line-height: 2;
+}
+.preprint-aggregate-workspace .preprint-live-sheet--data {
+  min-height: 0;
+  aspect-ratio: auto;
+  background: var(--surface-secondary);
+  box-shadow: none;
+}
+.preprint-aggregate-workspace .preprint-preview-title-layout {
+  display: flex;
+  flex: 1;
+  min-height: 390px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.preprint-aggregate-workspace .preprint-preview-title-block {
+  display: grid;
+  width: 100%;
+  gap: 12px;
+  margin-block: 72px 36px;
+}
+.preprint-aggregate-workspace .preprint-preview-title-block .preprint-live-book-title {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+  font-weight: 800;
+  line-height: 2;
+}
+.preprint-aggregate-workspace .preprint-preview-title-block .preprint-live-subtitle {
+  margin: 0;
+}
+.preprint-aggregate-workspace .preprint-preview-title-layout--half {
+  justify-content: center;
+  padding-block-start: 0;
+}
+.preprint-aggregate-workspace .preprint-preview-title-layout--half .preprint-preview-title-block {
+  margin-block: 0;
+}
+.preprint-aggregate-workspace .preprint-preview-variant-switch {
+  display: flex;
+  gap: 4px;
+  margin-block-end: 14px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface-secondary);
+}
+.preprint-aggregate-workspace .preprint-preview-variant-switch button {
+  flex: 1;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 7px 9px;
+  font: inherit;
+  font-size: .67rem;
+  cursor: pointer;
+}
+.preprint-aggregate-workspace .preprint-preview-variant-switch button.is-selected {
+  border-color: #b6cde1;
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 650;
+}
+.preprint-aggregate-workspace .preprint-preview-variant-switch button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.preprint-aggregate-workspace .preprint-preview-contributor-block {
+  display: grid;
+  width: 100%;
+  gap: 16px;
+  margin-block: 10px 28px;
+}
+.preprint-aggregate-workspace .preprint-preview-contributor-block .preprint-live-title-contributor {
+  margin: 0;
+  gap: 3px;
+  font-size: .85rem;
+}
+.preprint-aggregate-workspace .preprint-preview-publisher-mark {
+  display: grid;
+  width: 100%;
+  gap: 6px;
+  margin-block-start: auto;
+  padding-block-start: 32px;
+  font-size: .85rem;
+}
+.preprint-aggregate-workspace .preprint-preview-catalog-layout {
+  display: flex;
+  flex: 1;
+  min-height: 390px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-block-start: 84px;
+}
+.preprint-aggregate-workspace .preprint-preview-bibliography {
+  border-block: 1px solid #596773;
+  padding-block: 14px;
+}
+.preprint-aggregate-workspace .preprint-preview-bibliographic-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 5px;
+  margin: 0;
+  font-size: .8rem;
+  line-height: 2.2;
+}
+.preprint-aggregate-workspace .preprint-preview-bibliographic-line > strong {
+  flex-shrink: 0;
+  font-weight: 650;
+}
+.preprint-aggregate-workspace .preprint-preview-bibliographic-line .preprint-preview-target {
+  display: inline;
+  width: auto;
+  min-width: 48px;
+  max-width: 100%;
+  flex: 1;
+  text-align: start;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-layout {
+  display: flex;
+  flex: 1;
+  min-height: 390px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-layout > div {
+  width: 100%;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-layout .preprint-preview-publisher-mark {
+  margin-block-start: 0;
+  padding-block-start: 0;
+  font-weight: 650;
+}
+.preprint-aggregate-workspace .preprint-preview-publication-details {
+  font-size: .78rem;
+  line-height: 2.2;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-book {
+  display: grid;
+  gap: 6px;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-book .preprint-live-book-title--small {
+  margin-block: 0 10px;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-person {
+  font-size: .79rem;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-isbn {
+  margin-block-start: 10px;
+  font-size: .77rem;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-history {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+  margin-block-start: 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--surface-secondary);
+  font-size: .74rem;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-history h3 {
+  font-size: .78rem;
+}
+.preprint-aggregate-workspace .preprint-preview-imprint-history p {
+  margin: 0;
+  font-size: .69rem;
+}
+.preprint-aggregate-workspace .preprint-preview-target {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 28px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  padding: 2px 4px;
+  font: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  transition: border-color 120ms, background-color 120ms;
+}
+.preprint-aggregate-workspace .preprint-preview-target.is-empty {
+  color: #84919a;
+  text-decoration: underline dashed #cbd2d6;
+  text-underline-offset: 5px;
+  font-weight: 400;
+}
+.preprint-aggregate-workspace .preprint-preview-target:hover {
+  border-color: #b6cde1;
+  background: #f2f7fb;
+}
+.preprint-aggregate-workspace .preprint-preview-target:focus-visible,
+.preprint-aggregate-workspace .preprint-preview-target.is-active,
+.preprint-aggregate-workspace .preprint-preview-target.is-field-active {
+  outline: 2px solid #367ab5;
+  outline-offset: 2px;
+  background: #eef6fc;
+}
+.preprint-aggregate-workspace .form-field:focus-within > label,
+.preprint-aggregate-workspace .preprint-field:focus-within > span,
+.preprint-aggregate-workspace .preprint-multi-picker:focus-within > label {
+  color: #286ca5;
+}
+.preprint-book-location, .preprint-form-location {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-block-end: 20px;
+  padding-block-end: 16px;
+  border-block-end: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: .72rem;
+  line-height: 1.9;
+}
+.preprint-book-location > p {
+  flex: 1 1 300px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: .74rem;
+}
+.preprint-book-location .preprint-source-guide {
+  flex: 1 0 100%;
+  min-width: 0;
+  color: var(--text-muted);
+  font-size: .69rem;
+}
+.preprint-book-location .preprint-source-guide summary {
+  cursor: pointer;
+  color: var(--primary);
+}
+.preprint-book-location .preprint-source-guide[open] summary {
+  margin-block-end: 8px;
+}
+.preprint-book-location .preprint-source-guide p {
+  margin-block: 6px 0;
+  font-size: .69rem;
+}
+.preprint-book-location .preprint-source-guide small {
+  display: block;
+  margin-block-start: 8px;
+  font-size: .65rem;
+  line-height: 1.9;
+}
+.preprint-book-location__kind, .preprint-form-location__badge {
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 3px 8px;
+  font-size: .66rem;
+  font-weight: 650;
+}
+.preprint-form-mode--general .preprint-book-location__kind, .preprint-form-mode--general .preprint-form-location__badge {
+  background: var(--surface-tertiary);
+  color: var(--text-secondary);
+}
+.preprint-aggregate-workspace .preprint-source-note {
+  margin-block: 8px 20px;
+  color: var(--text-muted);
+  font-size: .69rem;
+  line-height: 1.9;
+}
+.preprint-aggregate-workspace .preprint-shared-contributors {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-secondary);
+  padding: 14px;
+  margin-block: 16px 22px;
+  font-size: .76rem;
+  line-height: 1.9;
+}
+.preprint-aggregate-workspace .preprint-shared-contributors > strong {
+  color: var(--navy-900);
+  font-size: .74rem;
+}
+.preprint-aggregate-workspace .preprint-related-details {
+  margin-block-start: 18px;
+  border-block-start: 1px solid var(--border);
+  padding-block-start: 14px;
+}
+.preprint-aggregate-workspace .preprint-related-details > summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-size: .72rem;
+}
+.preprint-aggregate-workspace .preprint-related-details[open] > summary {
+  margin-block-end: 18px;
+}
+@container book-request (max-width: 700px) {
+  .preprint-aggregate-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .preprint-aggregate-workspace > .preprint-book-editor {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .preprint-aggregate-workspace > .preprint-live-panel {
+    position: static;
+    grid-column: 1;
+    grid-row: 2;
+    max-height: none;
+    overflow: visible;
+    padding-inline: 0;
+  }
+  .preprint-aggregate-workspace .preprint-live-sheet {
+    min-height: 420px;
+    max-height: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .preprint-aggregate-workspace .preprint-preview-target {
+    transition: none;
+  }
+}

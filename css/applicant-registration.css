@@ -86,7 +86,12 @@ width: 13px;
 
 .onboarding-nav
 {
-display: flex; flex: 1; flex-direction: column; gap: var(--space-1); padding: var(--space-4) var(--space-3);
+display: flex; flex: 1; min-height: 0; overflow-y: auto; flex-direction: column; gap: var(--space-1); padding: var(--space-4) var(--space-3); scrollbar-width: thin; scrollbar-color: #456477 transparent; scrollbar-gutter: stable;
+}
+
+.onboarding-nav > *, .onboarding-sidebar > :not(.onboarding-nav)
+{
+flex-shrink: 0;
 }
 
 .onboarding-nav__label
@@ -96,7 +101,7 @@ color: var(--on-dark-35); margin-block: var(--space-1) var(--space-2); padding-i
 
 .onboarding-nav > a, .onboarding-nav > button
 {
-position: relative; display: flex; min-height: 46px; align-items: center; gap: var(--space-3); border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--on-dark-62); padding-inline: var(--space-3); font-size: var(--font-xs); font-weight: 650; text-align: start; white-space: nowrap;
+position: relative; display: flex; min-height: 46px; align-items: center; gap: var(--space-3); border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--on-dark-72); padding-inline: var(--space-3); font-size: .8125rem; font-weight: 650; text-align: start; white-space: nowrap;
 }
 
 .onboarding-nav > a:hover, .onboarding-nav > button:hover
@@ -109,7 +114,7 @@ background: var(--on-dark-7); color: var(--on-dark);
 width: 19px; flex: 0 0 19px;
 }
 
-.onboarding-nav > a > .app-icon:last-child, .onboarding-nav__parent > .app-icon:last-child
+.onboarding-nav > a > .app-icon:last-child:not(:first-child), .onboarding-nav__parent > .app-icon:last-child
 {
 width: 13px; margin-inline-start: auto; opacity: .45;
 }
@@ -146,7 +151,7 @@ display: grid; gap: 3px; margin-block: 0 var(--space-1); margin-inline-start: 30
 
 .onboarding-nav__submenu > a
 {
-position: relative; display: flex; min-height: 36px; align-items: center; border-radius: var(--radius-sm); color: var(--on-dark-52); padding-inline: var(--space-3); font-size: .67rem; font-weight: 550; white-space: nowrap;
+position: relative; display: flex; min-height: 38px; align-items: center; border-radius: var(--radius-sm); color: var(--on-dark-72); padding-inline: var(--space-3); font-size: .75rem; font-weight: 550; white-space: normal; line-height: 1.7;
 }
 
 .onboarding-nav__submenu > a::before
@@ -169,7 +174,7 @@ background: rgb(217 189 125 / 11%); color: #f2ddb0;
 background: #d9bd7d; opacity: 1;
 }
 
-.onboarding-nav > button b
+.onboarding-nav > a b, .onboarding-nav > button b
 {
 border-radius: 99px; background: rgb(199 163 90 / 16%); color: #d9c18b; margin-inline-start: auto; padding: 3px 7px; font-size: .52rem; font-weight: 650;
 }
@@ -784,6 +789,8 @@ width: 14px;
 display: none;
 }
 
+@media (min-width: 901px)
+{
 .is-sidebar-collapsed
 {
 --onboarding-sidebar: 84px;
@@ -794,7 +801,7 @@ display: none;
 justify-content: center; padding-inline: var(--space-3);
 }
 
-.is-sidebar-collapsed .onboarding-sidebar__brand-copy, .is-sidebar-collapsed .onboarding-user-summary > div, .is-sidebar-collapsed .onboarding-nav__label, .is-sidebar-collapsed .onboarding-nav > * > span, .is-sidebar-collapsed .onboarding-nav > button b, .is-sidebar-collapsed .onboarding-nav > a > .app-icon:last-child, .is-sidebar-collapsed .onboarding-account-progress, .is-sidebar-collapsed .onboarding-sidebar__footer span, .is-sidebar-collapsed .onboarding-nav__submenu
+.is-sidebar-collapsed .onboarding-sidebar__brand-copy, .is-sidebar-collapsed .onboarding-user-summary > div, .is-sidebar-collapsed .onboarding-nav__label, .is-sidebar-collapsed .onboarding-nav > * > span, .is-sidebar-collapsed .onboarding-nav > * > b, .is-sidebar-collapsed .onboarding-nav > a > .app-icon:last-child:not(:first-child), .is-sidebar-collapsed .onboarding-nav__chevron, .is-sidebar-collapsed .onboarding-account-progress, .is-sidebar-collapsed .onboarding-sidebar__footer span, .is-sidebar-collapsed .onboarding-nav__submenu
 {
 display: none;
 }
@@ -807,4 +814,18 @@ display: flex; justify-content: center; padding-inline: 0;
 .is-sidebar-collapsed .onboarding-nav > a, .is-sidebar-collapsed .onboarding-nav > button, .is-sidebar-collapsed .onboarding-sidebar__footer a
 {
 justify-content: center; padding-inline: 0;
+}
+}
+
+@media (max-width: 900px)
+{
+.applicant-desktop .onboarding-sidebar
+{
+visibility: hidden;
+}
+
+.applicant-desktop.is-mobile-menu-open .onboarding-sidebar
+{
+visibility: visible;
+}
 }
